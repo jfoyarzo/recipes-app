@@ -55,6 +55,10 @@ end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console].
+  
+  # To be able to use html shortcuts in .erb-files
+  gem 'htmlbeautifier'
+  
   gem 'rubocop', '>= 1.0', '< 2.0'
   gem 'web-console'
 
@@ -68,9 +72,17 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
+  gem 'rails-controller-testing'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
 
+# gem to handle database connection
 gem 'dotenv-rails', '~> 2.8'
+
+# cancan for authorization
+gem 'cancancan'
+
+# devise for authetntication
+gem 'devise'
