@@ -86,3 +86,5 @@ gem 'cancancan'
 
 # devise for authetntication
 gem 'devise'
+
+gem 'bootstrap', '~> 5.1.3'
