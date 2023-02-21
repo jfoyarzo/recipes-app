@@ -1,27 +1,11 @@
 
-<div id="<%= dom_id recipe %>">
-  <p>
-    <strong>Name:</strong>
-    <%= recipe.name %>
-  </p>
+<div class="row px-3" id="<%= dom_id recipe %>">
+  <div class="col-5 ml-2">
+    <h4><%= recipe.name %></h4>
+    <%= button_to "REMOVE", recipe, method: :delete, class: 'btn btn-danger' %>
+  </div>
 
-  <p>
-    <strong>Preparation Time:</strong>
-    <%= recipe.preparation_time.strftime('%H:%M') %>
-  </p>
-
-  <p>
-    <strong>Cooking Time:</strong>
-    <%= recipe.cooking_time.strftime('%H:%M') %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= recipe.description %>
-  </p>
-
-  <p>
-    <strong>Public:</strong>
-    <%= recipe.public %>
-  </p>
+  <div class="col-7">
+    <p><%= recipe.description %></p>
+  </div>
 </div>

@@ -4,12 +4,9 @@
 
 <div class="d-flex flex-column align-items-center" id="recipes">
   <% @recipes.each do |recipe| %>
-    <div class="card mb-2 p-2 border-dark" style="width: 60%;">
+    <%= link_to recipe, class: 'card mb-4 p-2 border-dark', style: 'text-decoration: none; color: black; width: 60%' do %>
       <%= render recipe %>
-      <p>
-        <%= link_to "Show this recipe", recipe %>
-      </p>
-    </div>
+    <% end %>
   <% end %>
 </div>
 

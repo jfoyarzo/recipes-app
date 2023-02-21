@@ -1,9 +1,42 @@
 <p style="color: green"><%= notice %></p>
+<section class="container border border-dark py-3">
+  <div class="row">
+    <div class="col-9">
+      <p>
+        <strong>Name:</strong>
+        <%= @recipe.name %>
+      </p>
 
-<%= render @recipe %>
+      <p>
+        <strong>Preparation Time:</strong>
+        <%= @recipe.preparation_time.strftime('%H:%M') %>
+      </p>
 
-<div>
-  <%= link_to "Back to recipes", recipes_path %>
+      <p>
+        <strong>Cooking Time:</strong>
+        <%= @recipe.cooking_time.strftime('%H:%M') %>
+      </p>    
+    </div>
+    <div class="col-3">
+      <%= form_with url: recipe_path, method: :put, scope: :recipe do |form| %>
+        <div class="form-check form-switch">
+          <%= form.label :public, class: "form-check-label" %>
+          <%= form.check_box :public, {
+            class: "form-check-input",
+            role: "switch",
+            onchange: 'this.form.submit()'
+            } %>
+            
+        </div>
+      <% end %>
+    </div>
+    <p>
+      <strong>Description:</strong>
+      <%= @recipe.description %>
+    </p>
 
-  <%= button_to "Destroy this recipe", @recipe, method: :delete %>
-</div>
+  </div>
+
+  <div>
+  </div>
+</section>
