@@ -2,12 +2,14 @@
 
 <h1>Recipes</h1>
 
-<div id="recipes">
+<div class="d-flex flex-column align-items-center" id="recipes">
   <% @recipes.each do |recipe| %>
-    <%= render recipe %>
-    <p>
-      <%= link_to "Show this recipe", recipe %>
-    </p>
+    <div class="card mb-2 p-2 border-dark" style="width: 60%;">
+      <%= render recipe %>
+      <p>
+        <%= link_to "Show this recipe", recipe %>
+      </p>
+    </div>
   <% end %>
 </div>
 

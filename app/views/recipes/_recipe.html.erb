@@ -1,3 +1,4 @@
+
 <div id="<%= dom_id recipe %>">
   <p>
     <strong>Name:</strong>
@@ -5,23 +6,13 @@
   </p>
 
   <p>
-    <strong>Preparation:</strong>
-    <%= recipe.preparation %>
+    <strong>Preparation Time:</strong>
+    <%= recipe.preparation_time.strftime('%H:%M') %>
   </p>
 
   <p>
-    <strong>Time:</strong>
-    <%= recipe.time %>
-  </p>
-
-  <p>
-    <strong>Cooking:</strong>
-    <%= recipe.cooking %>
-  </p>
-
-  <p>
-    <strong>Time:</strong>
-    <%= recipe.time %>
+    <strong>Cooking Time:</strong>
+    <%= recipe.cooking_time.strftime('%H:%M') %>
   </p>
 
   <p>
@@ -33,5 +24,4 @@
     <strong>Public:</strong>
     <%= recipe.public %>
   </p>
-
 </div>
