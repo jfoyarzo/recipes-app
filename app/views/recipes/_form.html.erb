@@ -17,23 +17,13 @@
   </div>
 
   <div>
-    <%= form.label :preparation, style: "display: block" %>
-    <%= form.text_field :preparation %>
+    <%= form.label :preparation_time, style: "display: block" %>
+    <%= form.time_field :preparation_time %>
   </div>
 
   <div>
-    <%= form.label :time, style: "display: block" %>
-    <%= form.time_field :time %>
-  </div>
-
-  <div>
-    <%= form.label :cooking, style: "display: block" %>
-    <%= form.text_field :cooking %>
-  </div>
-
-  <div>
-    <%= form.label :time, style: "display: block" %>
-    <%= form.time_field :time %>
+    <%= form.label :cooking_time, style: "display: block" %>
+    <%= form.time_field :cooking_time %>
   </div>
 
   <div>
@@ -41,9 +31,9 @@
     <%= form.text_area :description %>
   </div>
 
-  <div>
-    <%= form.label :public, style: "display: block" %>
-    <%= form.check_box :public %>
+  <div class="form-check form-switch">
+    <%= form.label :public, class: "form-check-label" %>
+    <%= form.check_box :public, class: "form-check-input", role: "switch" %>
   </div>
 
   <div>
