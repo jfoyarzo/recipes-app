@@ -1,0 +1,19 @@
+<section>
+<div class="row">
+<div class="col">
+<h1>Last registered users</h1>
+<% @recent_users.each do |user| %>
+<p>#<%= user.id %> | <%= user.name %></p> 
+<% end %>
+</div>
+<div class="col">
+<h1>Last public recipes</h1>
+<% @recent_recipes.each do |recipes| %>
+<h2>Recipe name: </h2><p><%= recipe.name %></p> 
+<h2>Preparation time: </h2><p><%= recipe.preparation_time %></p>
+<h2>Cooking time: </h2><p><%= recipe.cooking_time %></p>
+<% end %>
+</div>
+
+</div>
+</section>
