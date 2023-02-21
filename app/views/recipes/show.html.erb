@@ -1,20 +1,17 @@
 <p style="color: green"><%= notice %></p>
 <section class="container border border-dark py-3">
   <div class="row">
+    <h3 class="d-flex flex-column align-items-center mb-3"><%= @recipe.name %></h3>
     <div class="col-9">
-      <p>
-        <strong>Name:</strong>
-        <%= @recipe.name %>
-      </p>
 
       <p>
         <strong>Preparation Time:</strong>
-        <%= @recipe.preparation_time.strftime('%H:%M') %>
+        <%= @recipe.preparation_time.strftime('%Hhrs %Mmin') %>
       </p>
 
       <p>
         <strong>Cooking Time:</strong>
-        <%= @recipe.cooking_time.strftime('%H:%M') %>
+        <%= @recipe.cooking_time.strftime('%Hhrs %Mmin') %>
       </p>    
     </div>
     <div class="col-3">
@@ -30,13 +27,40 @@
         </div>
       <% end %>
     </div>
-    <p>
-      <strong>Description:</strong>
-      <%= @recipe.description %>
-    </p>
-
+    <p><%= @recipe.description %></p>
   </div>
-
-  <div>
+  <div class="d-flex justify-content-between">
+    <%= link_to "Go to shopping list", recipes_path, class: 'btn btn-secondary' %>
+    <%= link_to "Add ingredient", recipes_path, class: 'btn btn-secondary' %>
   </div>
+  <hr class="hr" />
+  <table class="table table-striped table-hover table-bordered table-sortable">
+    <thead>
+      <tr>
+        <th scope="col" class="asc">Ingredient</th>
+        <th scope="col" class="desc">Quantity</th>
+        <th scope="col">value</th>
+        <th scope="col">Actions</th>
+      </tr>  
+    </thead>
+    <tbody>
+      <tr>
+        <td>Ingredient 1</td>
+        <td>Quantity 1</td>
+        <td>Value 1</td>
+        <td>
+          <%= link_to "Modify", recipes_path, class: 'btn btn-secondary' %>
+          <%= link_to "Remove", recipes_path, class: 'btn btn-secondary' %>
+        </td>
+      </tr>
+      <tr>
+        <td>Ingredient 2</td>
+        <td>Quantity 2</td>
+        <td>Value 2</td>
+        <td>
+          <%= link_to "Modify", recipes_path, class: 'btn btn-secondary' %>
+          <%= link_to "Remove", recipes_path, class: 'btn btn-secondary' %>
+        </td>
+    </tbody>
+  </table>
 </section>
