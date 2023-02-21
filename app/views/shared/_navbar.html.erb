@@ -1,0 +1,19 @@
+<header>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Recipes on Rails</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href=<%= users_path  %>>Home</a>
+          <a class="nav-link" href=<%= recipes_path %>>Recipes</a>
+          <a class="nav-link" href=<%= foods_path %>>User Foods</a>
+          <a class="nav-item btn btn-primary" href=<%= user_session_path %>>Log in</a>
+          <a class="nav-item btn btn-secondary" href=<%= new_user_registration_path %>>Sign up</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
