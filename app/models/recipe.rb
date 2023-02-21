@@ -1,8 +1,5 @@
 class Recipe < ApplicationRecord
   belongs_to :user
   has_many :recipe_foods
-
-  def recent_recipes
-    recipes.order(created_at: :desc).limit(3).reverse
-  end
+  scope :recent_recipes, -> { Recipe.where(public: true).last(5) }
 end
