@@ -9,8 +9,18 @@
     New Recipe
   </button>
   <% @public_recipes.each do |recipe| %>
-    <%= link_to recipe, class: 'card mb-4 p-2 border-dark overflow-hidden', style: 'height: 8.5rem; text-decoration: none; color: black; width: 60%' do %>
-      <%= render recipe %>
+    <%= link_to recipe, class: 'card mb-4 p-2 border-dark overflow-hidden', style: 'height: 10rem; text-decoration: none; color: black; width: 60%' do %>
+      <div class="row px-3" id="<%= dom_id recipe %>">
+        <div class="col-5 ml-2 d-flex flex-column align-items-center justify-content-around"  style="height: 7rem;">
+          <h4><%= recipe.name %></h4>
+          <p class="d-flex flex-column align-items-start">By: <%= recipe.user.name %></p>
+        </div>
+
+        <div class="col-7">
+          <p><%= recipe.description %></p>
+        </div>
+      </div>
+
     <% end %>
   <% end %>
 </div>
