@@ -17,26 +17,21 @@
   </div>
 
   <div>
-    <%= form.label :measurement, style: "display: block" %>
-    <%= form.text_field :measurement %>
-  </div>
-
-  <div>
-    <%= form.label :unit, style: "display: block" %>
-    <%= form.text_field :unit %>
+    <%= form.label :measurement_unit, style: "display: block" %>
+    <%= form.text_field :measurement_unit %>
   </div>
 
   <div>
     <%= form.label :price, style: "display: block" %>
-    <%= form.text_field :price %>
+    <%= form.number_field :price, step: :any, placeholder: 'in dollars' %>
   </div>
 
   <div>
     <%= form.label :quantity, style: "display: block" %>
-    <%= form.text_area :quantity %>
+    <%= form.number_field :quantity, step: :any %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary mt-2' %>
   </div>
 <% end %>
