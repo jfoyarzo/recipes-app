@@ -11,10 +11,15 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :quantity, style: "display: block" %>
-    <%= form.text_field :quantity %>
-  </div>
+  <%= form.label :quantity, style: "display: block" %>
+  <%= form.text_field :quantity %> <br>
+  <%= form.label :food, class: 'form-label' %>
+  <%= form.text_field :food, class: 'form-control', list: "datalistOptions", placeholder: "Type to search ingredients..." %>
+  <datalist id="datalistOptions">
+    <% current_user.foods.each do |food| %>
+      <option value=<%= food.name %>>
+    <% end %>
+  </datalist>
 
   <div>
     <%= form.submit %>
