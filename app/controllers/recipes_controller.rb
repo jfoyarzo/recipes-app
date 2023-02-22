@@ -1,10 +1,14 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[show update destroy]
-  authorize_resource
+  authorize_resource except: :public_recipes
 
   def index
     user = current_user
     @recipes = user.recipes.order(created_at: :desc)
+  end
+
+  def public_recipes
+    @public_recipes = Recipe.where(public: true)
   end
 
   def show; end
