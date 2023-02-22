@@ -7,7 +7,7 @@ class Ability
 
     return unless user.present?
 
-    can(%i[read create destroy], Recipe, user:)
+    can(%i[read create update destroy], Recipe, user:)
     can(%i[read create destroy], Food, user:)
   end
 end
