@@ -1,14 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Recipes</h1>
 
-<div id="recipes">
+<div class="d-flex flex-column align-items-center mx-5 my-2" id="recipes">
+  <h1 class="align-self-start">Recipes</h1>
+  <%= link_to "New recipe", new_recipe_path, class: 'btn btn-primary mb-4' %>
   <% @recipes.each do |recipe| %>
-    <%= render recipe %>
-    <p>
-      <%= link_to "Show this recipe", recipe %>
-    </p>
+    <%= link_to recipe, class: 'card mb-4 p-2 border-dark overflow-hidden', style: 'height: 8.5rem; text-decoration: none; color: black; width: 60%' do %>
+      <%= render recipe %>
+    <% end %>
   <% end %>
 </div>
 
-<%= link_to "New recipe", new_recipe_path %>
