@@ -1,8 +1,9 @@
-
 <div class="row px-3" id="<%= dom_id recipe %>">
   <div class="col-5 ml-2 d-flex flex-column align-items-center justify-content-around"  style="height: 7rem;">
     <h4><%= recipe.name %></h4>
-    <%= button_to "REMOVE", recipe, method: :delete, class: 'btn btn-danger' %>
+    <% if can? :destroy, recipe %>
+      <%= button_to "REMOVE", recipe, method: :delete, class: "btn btn-danger" %>
+    <% end %>
   </div>
 
   <div class="col-7">

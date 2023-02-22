@@ -2,17 +2,33 @@
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Recipes on Rails</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link active" aria-current="page" href=<%= root_path %>>Home</a>
+          <a class="nav-link" href=<%= public_recipes_path %>>Public Recipes</a>
           <a class="nav-link" href=<%= recipes_path %>>Recipes</a>
           <a class="nav-link" href=<%= foods_path %>>User Foods</a>
           <a class="nav-link" href=<%= shopping_list_path %>>Shopping List</a>
-          <a class="nav-item btn btn-primary" href=<%= user_session_path %>>Log in</a>
-          <a class="nav-item btn btn-secondary" href=<%= new_user_registration_path %>>Sign up</a>
+        </div>
+        <div class="nav-buttons ms-auto d-flex align-items-baseline">
+          <% if current_user.present? %>
+          <span class="me-3">Welcome, <%= current_user.name %></span>
+            <%= button_to("Log Out", destroy_user_session_path, method: :delete, class: 'btn btn-primary') %>
+          <% else %>
+            <a class="nav-item btn btn-primary me-2" href=<%= user_session_path %>>Log in</a>
+            <a class="nav-item btn btn-secondary" href=<%= new_user_registration_path %>>Sign up</a>
+          <% end %>
         </div>
       </div>
     </div>
