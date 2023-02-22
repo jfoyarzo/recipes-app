@@ -18,7 +18,7 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public))
+    @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
 
     respond_to do |f|
@@ -56,6 +56,6 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:name, :preparation, :time, :cooking, :time, :description, :public)
+    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
   end
 end
