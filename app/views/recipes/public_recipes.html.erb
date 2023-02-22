@@ -1,5 +1,5 @@
-<div class="d-flex flex-column align-items-center mx-5 my-2" id="recipes">
-  <h1 class="align-self-start">Recipes</h1>
+<div class="public-recipes d-flex flex-column align-items-center mx-5 my-2">
+  <h1 class="align-self-start">Public Recipes</h1>
   <button
     type="button"
     class="btn btn-primary mb-4"
@@ -8,7 +8,7 @@
   >
     New Recipe
   </button>
-  <% @recipes.each do |recipe| %>
+  <% @public_recipes.each do |recipe| %>
     <%= link_to recipe, class: 'card mb-4 p-2 border-dark overflow-hidden', style: 'height: 8.5rem; text-decoration: none; color: black; width: 60%' do %>
       <%= render recipe %>
     <% end %>
