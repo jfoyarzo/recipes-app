@@ -56,28 +56,8 @@ class RecipeFoodsController < ApplicationController
       format.html { redirect_to recipe_url(@recipe_food.recipe), notice: 'Ingredient deleted successfully.' }
     end
   end
-  
+
   private
-  
-    # find missing ingredients in a recipe
-    # 1. all recipes of the current user
-    # 2. all foods in the inventory of the current user
-    # 3. loop through all recipes and find foods that are not in the inventory
-    #def missing_ingredients
-    #  @recipes = current_user.recipes
-    #  @inventory = current_user.foods
-    #  @ingredients = []
-    #  @recipes.each do |r|
-    #    @ingredients << r.recipe_foods
-    #  end
-    #  @qinventory = @inventory.map do |i|
-    #    i.quantity
-    #  end
-    #  @qingredients = @ingredients.map do |i|
-    #    i.quantity
-    #  end
-    #  @missing = @qingredients - @qinventory
-    #end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_recipe_food
