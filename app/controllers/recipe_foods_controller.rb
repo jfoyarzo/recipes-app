@@ -5,20 +5,9 @@ class RecipeFoodsController < ApplicationController
   def index
     @recipe_foods = RecipeFood.all
 
-    # show all foods in all recipes that are missing from the inventory
+   # show all foods in all recipes that are missing from the inventory
     @shopping_list = User.create_shopping_list(current_user.id)
   end
-
-  # GET /recipe_foods/1 or /recipe_foods/1.json
-  def show; end
-
-  # GET /recipe_foods/new
-  def new
-    @recipe_food = RecipeFood.new
-  end
-
-  # GET /recipe_foods/1/edit
-  def edit; end
 
   # POST /recipe_foods or /recipe_foods.json
   def create
@@ -33,17 +22,6 @@ class RecipeFoodsController < ApplicationController
         end
       else
         format.html { render :new, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /recipe_foods/1 or /recipe_foods/1.json
-  def update
-    respond_to do |format|
-      if @recipe_food.update(recipe_food_params)
-        format.html { redirect_to recipe_food_url(@recipe_food), notice: 'Recipe food was successfully updated.' }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
       end
     end
   end
