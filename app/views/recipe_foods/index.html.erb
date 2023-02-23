@@ -3,12 +3,29 @@
 <h1>Recipe foods</h1>
 
 <div id="recipe_foods">
-  <% @recipe_foods.each do |recipe_food| %>
-    <%= render recipe_food %>
-    <p>
-      <%= link_to "Show this recipe food", recipe_food %>
-    </p>
-  <% end %>
+<table class="table table-striped table-hover table-bordered table-sortable">
+    <thead>
+      <tr>
+        <th>Ingredient</th>
+        <th>Quantity needed</th>
+        <th>Total value</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @shopping_list.each do |ingredient| %>
+        <tr>
+          <td><%= ingredient[:name] %></td>
+          <td><%= "#{ingredient[:quantity]} #{ingredient[:measurement_unit]}" %></td>
+          <td>$<%= ingredient[:total_price] %></td>
+          <td>
+            <%= button_to "Delete", ingredient, method: :delete, class: "btn btn-secondary" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<%= link_to "New recipe food", new_recipe_food_path %>  
 </div>
 
-<%= link_to "New recipe food", new_recipe_food_path %>
