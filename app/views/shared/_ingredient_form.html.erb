@@ -11,17 +11,18 @@
     </div>
   <% end %>
 
+  <%= form.hidden_field :recipe_id, value: @recipe.id %>
   <%= form.label :quantity, style: "display: block" %>
   <%= form.text_field :quantity %> <br>
   <%= form.label :food, class: 'form-label' %>
-  <%= form.text_field :food, class: 'form-control', list: "datalistOptions", placeholder: "Type to search ingredients..." %>
+  <%= form.text_field :food, class: 'form-control', list: "datalistOptions", placeholder: "Type to search owned ingredients..." %>
   <datalist id="datalistOptions">
     <% current_user.foods.each do |food| %>
-      <option value=<%= food.name %>>
+      <option value="<%= food.name %>">
     <% end %>
   </datalist>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary mt-3' %>
   </div>
 <% end %>
