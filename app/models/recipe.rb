@@ -7,7 +7,7 @@ class Recipe < ApplicationRecord
     recipes = User.find(user_id).recipes
     ingredients = {}
     recipes.each do |recipe|
-      recipe.recipe_foods.each do |ingredient|
+      recipe.recipe_foods.includes(:food).each do |ingredient|
         if ingredients.key?(ingredient.food.name)
           ingredients[ingredient.food.name] += ingredient.quantity
         else

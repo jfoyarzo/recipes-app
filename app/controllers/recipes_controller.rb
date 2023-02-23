@@ -8,10 +8,12 @@ class RecipesController < ApplicationController
   end
 
   def public_recipes
-    @public_recipes = Recipe.where(public: true)
+    @public_recipes = Recipe.where(public: true).includes(:user)
   end
 
-  def show; end
+  def show
+    @ingredients_list = @recipe.recipe_foods.includes(:food)
+  end
 
   def new
     @recipe = Recipe.new

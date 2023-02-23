@@ -3,9 +3,7 @@ class RecipeFoodsController < ApplicationController
 
   # GET /recipe_foods or /recipe_foods.json
   def index
-    @recipe_foods = RecipeFood.all
-
-   # show all foods in all recipes that are missing from the inventory
+    # show all foods in all recipes that are missing from the inventory
     @shopping_list = User.create_shopping_list(current_user.id)
   end
 
