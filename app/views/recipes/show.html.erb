@@ -29,7 +29,7 @@
     <p><%= @recipe.description %></p>
   </div>
   <div class="d-flex justify-content-between">
-    <%= link_to "Go to shopping list", recipes_path, class: "btn btn-secondary mb-4" %>
+    <%= link_to "Go to shopping list", shopping_list_path, class: "btn btn-secondary mb-4" %>
     <button
       type="button"
       class="btn btn-secondary mb-4"
@@ -56,7 +56,7 @@
           <td><%= ingredient.quantity %></td>
           <td>$<%= ingredient.food.price * ingredient.quantity %></td>
           <td>
-            <%= button_to "Delete", ingredient, method: :delete, class: "btn btn-secondary" %>
+            <%= button_to "Delete", ingredient, method: :delete, class: "btn btn-danger" %>
           </td>
         </tr>
       <% end %>
@@ -77,14 +77,7 @@
           ></button>
         </div>
         <div class="modal-body">
-
           <%= render "shared/ingredient_form", recipe_food: RecipeFood.new %>
-
-          <br>
-
-          <div>
-            <%= link_to "Back to recipes", recipes_path %>
-          </div>
         </div>
       </div>
     </div>
