@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[show update destroy]
+  before_action :authenticate_user!, except: :public_recipes
   authorize_resource except: :public_recipes
 
   def index
