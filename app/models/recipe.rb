@@ -1,6 +1,10 @@
 class Recipe < ApplicationRecord
   belongs_to :user
   has_many :recipe_foods
+  validates :name, presence: true, length: { in: 2..250 }
+  validates :description, presence: true
+  validates :preparation_time, presence: true
+  validates :cooking_time, presence: true
   scope :recent_recipes, -> { Recipe.where(public: true).last(5) }
 
   def self.sum_ingredients(user_id)
