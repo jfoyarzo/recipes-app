@@ -17,8 +17,10 @@
   <%= form.label :food, class: 'form-label' %>
   <%= form.text_field :food, class: 'form-control', list: "datalistOptions", placeholder: "Type to search owned ingredients..." %>
   <datalist id="datalistOptions">
+  <% if current_user.present? %>
     <% current_user.foods.each do |food| %>
       <option value="<%= food.name %>">
+  <% end %>
     <% end %>
   </datalist>
 
