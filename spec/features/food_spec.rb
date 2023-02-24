@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe 'Foods page', type: :system do
   describe 'Foods/index' do
     before(:each) do
-      @user = User.create!(name: 'name', email: 'email@gmail.com', password: 'password', password_confirmation: 'password')
+      @user = User.create!(name: 'name', email: 'email@gmail.com', password: 'password',
+                           password_confirmation: 'password')
       @food = Food.create!(name: 'food', measurement_unit: 'kg', quantity: 5, price: 10, user: @user)
       @user.skip_confirmation!
       @user.save!

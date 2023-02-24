@@ -25,7 +25,8 @@ RSpec.describe FoodsController, type: :controller do
 
     describe 'DELETE #destroy' do
       it 'returns a succes response when logged in' do
-        @user = User.create(name: 'test', email: 'mail@mail.com', password: 'password', password_confirmation: 'password')
+        @user = User.create(name: 'test', email: 'mail@mail.com', password: 'password',
+                            password_confirmation: 'password')
         food = Food.create!(name: 'test', measurement_unit: 'test', price: 1, quantity: 1, user: @user)
         delete :destroy, params: { id: food.id }
         expect(response).to have_http_status(302)

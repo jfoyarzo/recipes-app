@@ -3,9 +3,10 @@ require 'rails_helper'
 RSpec.describe 'Recipes Page', type: :system do
   describe 'Recipe/index' do
     before :each do
-      @user = User.create!(name: 'name', email: 'email@gmail.com', password: 'password', password_confirmation: 'password')
-      @recipe = Recipe.create!(name: 'recipe', preparation_time: '00:45', cooking_time: '00:50', description: 'description',
-                               public: true, user_id: @user.id)
+      @user = User.create!(name: 'name', email: 'email@gmail.com', password: 'password',
+                           password_confirmation: 'password')
+      @recipe = Recipe.create!(name: 'recipe', preparation_time: '00:45', cooking_time: '00:50',
+                               description: 'description', public: true, user_id: @user.id)
       @user.skip_confirmation!
       @user.save!
       visit new_user_session_path

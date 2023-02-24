@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe RecipeFoodsController, type: :controller do
   user = User.create(name: 'test', email: 'test@test.com', password: 'test1234', password_confirmation: 'test1234')
-  let(:recipe) { create(:recipe, user: user) }
-  let(:food) { create(:food, user: user) }
-  let(:recipe_food) { create(:recipe_food, recipe: recipe, food: food) }
-  
+  let(:recipe) { create(:recipe, user:) }
+  let(:food) { create(:food, user:) }
+  let(:recipe_food) { create(:recipe_food, recipe:, food:) }
+
   describe 'POST #create' do
     it 'creates a new recipe_food' do
       expect do
@@ -20,7 +20,7 @@ RSpec.describe RecipeFoodsController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
-    let(:recipe_food) { create(:recipe_food, recipe: recipe, food: food) }
+    let(:recipe_food) { create(:recipe_food, recipe:, food:) }
 
     it 'deletes the recipe_food' do
       recipe_food

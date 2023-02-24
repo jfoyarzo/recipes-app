@@ -4,8 +4,8 @@ RSpec.describe 'Recipes Page', type: :system do
   describe 'public_recipes' do
     before :each do
       @user = User.create!(name: 'name', email: 'email@gmail.com', password: 'password')
-      @recipe = Recipe.create!(name: 'recipe', preparation_time: '01:10', cooking_time: '00:20', description: 'description',
-                               public: true, user: @user)
+      @recipe = Recipe.create!(name: 'recipe', preparation_time: '01:10', cooking_time: '00:20',
+                               description: 'description', public: true, user: @user)
       @user.skip_confirmation!
       @user.save!
       visit new_user_session_path

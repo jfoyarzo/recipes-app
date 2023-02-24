@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :user do
-    id { 1 }
+    id { 153 }
     email { 'hu@hu.hu' }
     password { 'qwerty' }
     name { 'test user' }
@@ -18,8 +18,8 @@ FactoryBot.define do
 
   factory :recipe do
     name { 'test recipe' }
-    preparation_time { 1 }
-    cooking_time { 1 }
+    preparation_time { '01:00' }
+    cooking_time { '01:00' }
     description { 'test description' }
   end
 
