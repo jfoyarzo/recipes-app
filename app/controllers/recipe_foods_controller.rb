@@ -11,8 +11,8 @@ class RecipeFoodsController < ApplicationController
   def create
     unless current_user.foods.exists?(name: params[:recipe_food][:food])
       current_user.foods.create!(name: params[:recipe_food][:food],
-                                  measurement_unit: params[:recipe_food][:measurement_unit],
-                                  price: params[:recipe_food][:price], quantity: 0)
+                                 measurement_unit: params[:recipe_food][:measurement_unit],
+                                 price: params[:recipe_food][:price], quantity: 0)
     end
 
     @recipe_food = RecipeFood.new(quantity: params[:recipe_food][:quantity])
