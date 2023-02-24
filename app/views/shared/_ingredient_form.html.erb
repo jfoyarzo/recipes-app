@@ -23,7 +23,10 @@
   <% end %>
     <% end %>
   </datalist>
-
+  <%= form.label :measurement_unit, class: 'form-label' %>
+  <%= form.text_field :measurement_unit %> <br>
+  <%= form.label :price, class: 'form-label' %>
+  <%= form.text_field :price %> <br>
   <div>
     <%= form.submit class: 'btn btn-primary mt-3' %>
   </div>
