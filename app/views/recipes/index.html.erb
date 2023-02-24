@@ -1,0 +1,35 @@
+<div class="d-flex flex-column align-items-center mx-5 my-2" id="recipes">
+  <h1 class="align-self-start">Recipes</h1>
+  <button
+    type="button"
+    class="btn btn-primary mb-4"
+    data-bs-toggle="modal"
+    data-bs-target="#recipesModal"
+  >
+    New Recipe
+  </button>
+  <% @recipes.each do |recipe| %>
+    <%= link_to recipe, class: 'card mb-4 p-2 border-dark overflow-hidden', style: 'height: 8.5rem; text-decoration: none; color: black; width: 60%' do %>
+      <%= render recipe %>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="modal" tabindex="-1" id="recipesModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">New recipe</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <%= render "form", recipe: Recipe.new %>
+      </div>
+    </div>
+  </div>
+</div>
