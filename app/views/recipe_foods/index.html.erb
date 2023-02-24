@@ -1,15 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Recipe foods</h1>
+<h1>Shopping List</h1>
 
-<div id="recipe_foods">
-<table class="table table-striped table-hover table-bordered table-sortable">
+<div id="recipe_foods" class="d-flex justify-content-center">
+<table class="table table-striped table-hover table-bordered table-sortable" style="width: 60%;">
     <thead>
       <tr>
         <th>Ingredient</th>
         <th>Quantity needed</th>
         <th>Total value</th>
-        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -18,14 +17,9 @@
           <td><%= ingredient[:name] %></td>
           <td><%= "#{ingredient[:quantity]} #{ingredient[:measurement_unit]}" %></td>
           <td>$<%= ingredient[:total_price] %></td>
-          <td>
-            <%= button_to "Delete", ingredient, method: :delete, class: "btn btn-secondary" %>
-          </td>
         </tr>
       <% end %>
     </tbody>
   </table>
-
-<%= link_to "New recipe food", new_recipe_food_path %>  
 </div>
 

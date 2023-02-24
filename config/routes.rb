@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   }
   get '/public_recipes', to: 'recipes#public_recipes', as: 'public_recipes'
   get '/general_shopping_list', to: 'recipe_foods#index', as: 'shopping_list'
-  resources :foods, only: %i[index show new create destroy]
-  resources :recipes, only: %i[index show new create update destroy]
-  resources :recipe_foods, only: %i[new create destroy]
+  resources :foods, only: %i[index show create destroy]
+  resources :recipes, only: %i[index show create update destroy]
+  resources :recipe_foods, only: %i[create destroy]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

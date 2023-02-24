@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[show update destroy]
+  before_action :authenticate_user!, except: %i[public_recipes show]
   authorize_resource except: :public_recipes
 
   def index
@@ -8,10 +9,12 @@ class RecipesController < ApplicationController
   end
 
   def public_recipes
-    @public_recipes = Recipe.where(public: true)
+    @public_recipes = Recipe.where(public: true).includes(:user)
   end
 
-  def show; end
+  def show
+    @ingredients_list = @recipe.recipe_foods.includes(:food)
+  end
 
   def new
     @recipe = Recipe.new
@@ -25,7 +28,7 @@ class RecipesController < ApplicationController
       if @recipe.save
         f.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully created.' }
       else
-        f.html { render :new, status: :unprocessable_entity }
+        f.html { render :index, status: :unprocessable_entity }
       end
     end
   end
@@ -35,7 +38,7 @@ class RecipesController < ApplicationController
       if @recipe.update(recipe_params)
         format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully updated.' }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { render :index, status: :unprocessable_entity }
       end
     end
   end
@@ -45,7 +48,6 @@ class RecipesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

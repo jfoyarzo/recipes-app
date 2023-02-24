@@ -1,7 +1,6 @@
-
 <div id="foods" class="mx-5">
   <div class="d-flex justify-content-between align-items-center">
-    <h1>Foods</h1>
+    <h1>My Inventory</h1>
     <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#foodsModal">
       Add food
     </button>
@@ -21,7 +20,7 @@
         <td><%= food.name %></td>
         <td><%= "#{food.quantity} #{food.measurement_unit}" %></td>
         <td>$<%= food.price %></td>
-        <td><%= button_to "Delete", food, method: :delete, class: 'btn btn-secondary' %></td>
+        <td><%= button_to "Delete", food, method: :delete, class: 'btn btn-danger' %></td>
         </tr>
       <% end %>
     </tbody>
@@ -42,10 +41,6 @@
       </div>
       <div class="modal-body">
         <%= render "form", food: Food.new %>
-        <br>
-        <div>
-          <%= link_to "Back to foods", foods_path, class: 'btn btn-primary' %>
-        </div>
       </div>
     </div>
   </div>

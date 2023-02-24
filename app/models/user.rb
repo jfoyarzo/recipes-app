@@ -11,6 +11,8 @@ class User < ApplicationRecord
     user_ingredients = User.find(user_id).foods
     missing_ingredients = []
     user_ingredients.each do |food|
+      next if recipes_ingredients[food.name].nil?
+
       quantity = recipes_ingredients[food.name] - food.quantity
       next unless quantity.positive?
 
