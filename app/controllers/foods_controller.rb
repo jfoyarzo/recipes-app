@@ -1,5 +1,6 @@
 class FoodsController < ApplicationController
   before_action :set_food, only: %i[show edit update destroy]
+  authorize_resource
 
   # GET /foods or /foods.json
   def index
