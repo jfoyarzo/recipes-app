@@ -69,7 +69,7 @@ Ingredients have measurement units, unit prices, recipes have cooking time and p
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [In progress...]
+- [Render](https://recipes-on-rails.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
